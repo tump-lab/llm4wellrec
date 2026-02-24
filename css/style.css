@@ -345,15 +345,21 @@ bottom: 35px; background-color: rgba(0, 0, 0, 0.7); color: #fff; margin: 0; padd
 .flex-caption p {margin: 0 0 15px;}
 
 /* --- Hero Image --- */
-.hero-container {
+.hero-container,
+#featured #hero-image.hero-container {
 	position: relative;
 	width: 100%;
+	height: 38vh;
+	max-height: 420px;
 	overflow: hidden;
 }
 
-.hero-container img {
+.hero-container img,
+#featured #hero-image.hero-container img {
 	width: 100%;
-	height: auto;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
 	display: block;
 }
 
@@ -391,6 +397,48 @@ bottom: 35px; background-color: rgba(0, 0, 0, 0.7); color: #fff; margin: 0; padd
 	overflow-wrap: break-word;
 }
 
+/* --- Hero 首页：无蒙版、小字、左侧居中（与参考图一致）--- */
+.hero-overlay-clear {
+	background: transparent !important;
+	backdrop-filter: none !important;
+	-webkit-backdrop-filter: none !important;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 24px 5% 24px 5%;
+}
+.hero-content-left {
+	text-align: left;
+	max-width: 56%;
+}
+.hero-title-small {
+	font-size: 1.55em !important;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	text-transform: none;
+	padding: 0 0 6px 0 !important;
+	line-height: 1.35;
+	/* 加粗黑色轮廓，多圈描边 */
+	text-shadow:
+		0 0 2px #000, 0 0 4px #000, 0 0 6px #000,
+		-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000,
+		-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+		-3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000;
+}
+.hero-container .hero-subtitle {
+	color: #fff;
+	font-size: 1.4em !important;
+	font-weight: 700;
+	margin: 0.3em 0 0 0;
+	letter-spacing: 0.5px;
+	/* @UMAP 2026 加粗加黑轮廓，更醒目 */
+	text-shadow:
+		0 0 2px #000, 0 0 4px #000, 0 0 6px #000, 0 0 8px #000,
+		-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000,
+		-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+		-3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000,
+		-2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000;
+}
+
 @media (max-width: 768px) {
 	.hero-title {
 		font-size: 1.5em;
@@ -400,6 +448,15 @@ bottom: 35px; background-color: rgba(0, 0, 0, 0.7); color: #fff; margin: 0; padd
 	}
 	.hero-overlay {
 		padding: 30px 15px;
+	}
+	.hero-content-left {
+		max-width: 90%;
+	}
+	.hero-title-small {
+		font-size: 1.25em !important;
+	}
+	.hero-container .hero-subtitle {
+		font-size: 1.2em !important;
 	}
 }
 
@@ -1016,7 +1073,7 @@ ul.link-list li{
 	list-style:none;
 }
 footer{
-background:#000;
+	background:#fff !important;
 }
 footer ul.link-list li a{
 	color:#fff;
@@ -1366,12 +1423,13 @@ ul.social-network li {
 
 #sub-footer{
 	text-shadow:none;
-	color:#f5f5f5;
+	color:#333;
 	padding:0;
 	padding-top:15px;
 	padding-bottom:15px;
 	margin:0;
-	background: #0D0D0D;
+	background: #fff !important;
+	border-top: 2px solid #000;
 }
 
 #sub-footer p{
@@ -1380,7 +1438,7 @@ ul.social-network li {
 }
 
 #sub-footer span{
-	color:#f5f5f5;
+	color:#333;
 }
 
 .copyright {
@@ -1390,6 +1448,23 @@ ul.social-network li {
 
 #sub-footer ul.social-network {
 	float:right;
+}
+
+/* 底部四个 logo 同一行、统一尺寸 */
+.footer-logos {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 16px;
+	padding: 20px 0;
+}
+.footer-logos img {
+	height: 28px;
+	width: auto;
+	max-width: 70px;
+	object-fit: contain;
+	display: block;
 }
 
   
